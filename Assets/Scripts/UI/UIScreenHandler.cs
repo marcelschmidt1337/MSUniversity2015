@@ -16,6 +16,7 @@ public class UIScreenHandler : MonoBehaviour
 		}
 		SetupInterfaces();
 		this.ActiveScreen = GetScreenForState( UIState.MainScreen );
+        this.ActiveScreen.Activate();
 	}
 
 	private void SetupInterfaces () {

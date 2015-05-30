@@ -11,7 +11,20 @@ public class IngameScreen : MonoBehaviour, IUIScreen
 	}
 
 	public void Deactivate (System.Action onDone) {
-		this.gameObject.SetActive( false );
-		onDone();
+        var animator = this.gameObject.GetComponent<Animator>();
+        animator.GetBehaviour<AnimationFinished>().RegisterOnDoneCallBack(() =>
+        {
+            this.gameObject.SetActive(false);
+            onDone();
+        });
+        animator.Play("HideUI");
 	}
+
+    void Update()
+    {
+        if(Input.GetButtonDown("Pause"))
+        {
+            UIScreenHandler.Instance.ChangeState(UIState.PauseScreen);
+        }
+    }
 }
