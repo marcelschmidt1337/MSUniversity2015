@@ -546,8 +546,8 @@ GameObject:
   - 4: {fileID: 485468}
   - 54: {fileID: 5415294}
   - 114: {fileID: 11469264}
-  - 114: {fileID: 11470444}
   - 114: {fileID: 11494842}
+  - 114: {fileID: 11467990}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -2026,6 +2026,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkidTrailPrefab: {fileID: 400000, guid: 4b6aa99de5d21424eab6ae279f31475b, type: 2}
   skidParticles: {fileID: 0}
+--- !u!114 &11467990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732e769701ddd894592a25f28879925d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIndex: 0
 --- !u!114 &11469264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2066,17 +2078,6 @@ MonoBehaviour:
   m_RevRangeBoundary: 1
   m_SlipLimit: .300000012
   m_BrakeTorque: 20000
---- !u!114 &11470444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11488102
 MonoBehaviour:
   m_ObjectHideFlags: 1
