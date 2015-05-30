@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class HighscoreScreen : MonoBehaviour , IUIScreen
 {
@@ -7,6 +9,8 @@ public class HighscoreScreen : MonoBehaviour , IUIScreen
 
 	public void Activate () {
 		this.gameObject.SetActive( true );
+        var selectedGo = GetComponentInChildren<Button>().gameObject;
+        EventSystem.current.SetSelectedGameObject(selectedGo);
 	}
 
 	public void Deactivate (System.Action onDone) {
@@ -17,4 +21,12 @@ public class HighscoreScreen : MonoBehaviour , IUIScreen
 	public void GoBack () {
 		UIScreenHandler.Instance.ChangeState( UIState.MainScreen );
 	}
+
+    void Update()
+    {
+        if(Input.GetButtonDown("Cancel"))
+        {
+            GoBack();
+        }
+    }
 }

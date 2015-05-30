@@ -2,6 +2,8 @@
 using System.Collections;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 #endif
 
 public class MainScreen : MonoBehaviour, IUIScreen
@@ -10,11 +12,18 @@ public class MainScreen : MonoBehaviour, IUIScreen
 
 	public void Activate () {
 		this.gameObject.SetActive( true );
+        var selectedGo = GetComponentInChildren<Button>().gameObject;
+        EventSystem.current.SetSelectedGameObject(selectedGo);
 	}
 
 	public void Deactivate (System.Action onDone) {
-		this.gameObject.SetActive( false );
-		onDone();
+        var animator = this.gameObject.GetComponent<Animator>();
+        animator.GetBehaviour<AnimationFinished>().RegisterOnDoneCallBack(() =>
+        {
+            this.gameObject.SetActive(false);
+            onDone();
+        });
+        animator.Play("HideUI");
 	}
 
 	public void Quit () {
