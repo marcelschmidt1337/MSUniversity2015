@@ -19,7 +19,5 @@
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
-RaceRagdollGame/Library/
-RaceRagdollGame/Temp/
-RaceRagdollGame/Assets/UnityVS/
-RaceRagdollGame/Assets/UnityVS.meta
+Assets/UnityVS/
+Assets/UnityVS.meta
