@@ -29,6 +29,6 @@ public class MainScreen : MonoBehaviour, IUIScreen
 	}
 
 	public void StartGame () {
-		throw new System.NotImplementedException();
+		UIScreenHandler.Instance.ChangeState( UIState.IngameScreen );
 	}
 }
