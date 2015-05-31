@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class PauseScreen : MonoBehaviour, IUIScreen 
 {
 	public UIState StateId { get { return UIState.PauseScreen; } }
+	float OriginalTimeScale;
 
 	public void Activate () {
+		this.OriginalTimeScale = Time.timeScale;
 		this.gameObject.SetActive( true );
         var selectedGo = GetComponentInChildren<Button>().gameObject;
         EventSystem.current.SetSelectedGameObject(selectedGo);
 	}
 
 	public void Deactivate (System.Action onDone) {
+		Time.timeScale = this.OriginalTimeScale;
 		this.gameObject.SetActive( false );
 		onDone();
 	}

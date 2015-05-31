@@ -8,11 +8,12 @@ using UnityEngine.EventSystems;
 
 public class MainScreen : MonoBehaviour, IUIScreen
 {
+	public GameObject UI_Background;
 	public UIState StateId {get {return UIState.MainScreen; } }
 
 	public void Activate () {
 		this.gameObject.SetActive( true );
-        Application.LoadLevelAdditive("UI_Background");
+		Application.LoadLevelAdditive( "UI_background" );
         var selectedGo = GetComponentInChildren<Button>().gameObject;
         EventSystem.current.SetSelectedGameObject(selectedGo);
 	}

@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     Player playerprefab;
 
+	[SerializeField]
+	float initialGameTime;
+
+	private float timer;
+	private bool gameStarted = false;
+
     private Player[] player;
 
     // Static singleton instance
@@ -49,9 +55,7 @@ public class GameManager : MonoBehaviour {
     public void StartGame(int playerCount) {
 
         PlayerCount = playerCount;
-        player = new Player[playercount];
-
-        int[] SpawnPositions = { 0, 1, 2, 3 };
+        player = new Player[playercount];        int[] SpawnPositions = { 0, 1, 2, 3 };
         for (int i = 0; i < 100; i++)
         {
             int Index1 = Random.Range(0, 3); 
@@ -70,6 +74,7 @@ public class GameManager : MonoBehaviour {
         {
             spawnPoints[i].SetActive(false);
         }
+		timer = initialGameTime;
     }
 
     public void SpawnPlayer(int id, int SpawnPosition) {
@@ -91,6 +96,16 @@ public class GameManager : MonoBehaviour {
         toReward.addScore(points);
 
     }
+
+	void Update () {
+		if (gameStarted) {
+			timer -= Time.deltaTime;
+
+			if (timer <= 0) {
+				gameStarted = false;
+			}
+		}
+	}
  
 
 }
