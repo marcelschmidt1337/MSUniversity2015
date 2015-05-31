@@ -41,6 +41,11 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public bool HasCrown {
+        get { return hasCrown; }
+        set { hasCrown = value; }
+    }
+
     public void addLivePoints(int livepoints) {
         LivePoints = LivePoints - livepoints;
     }
@@ -55,4 +60,6 @@ public class Player : MonoBehaviour {
     public void addScore(int points) {
         score += points;
     }
+
+
 }

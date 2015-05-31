@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     GameObject carPrefab;
 
-    HighScoreLogic highscorelogic;
-
     private Player[] player;
 
     // Static singleton instance
@@ -38,19 +36,20 @@ public class GameManager : MonoBehaviour {
 
     public void CarCrashesCar(int origin, int victim) {
         player[victim].addLivePoints(-crashDamagePoints);
+        AddHighScorePoints(origin, PointType.Crash);
     }
 
     public void WeaponCrashesCar(int origin, int victim, Weapon weapon) {
         player[victim].addLivePoints(-crashDamagePoints);
+        AddHighScorePoints(origin, PointType.Weapon);
     }
 
     public void RagdollFlies(int origin, int victim) {
         player[victim].addLivePoints(-crashDamagePoints);
+        AddHighScorePoints(origin, PointType.Ragdoll);
     }
 
     public void StartGame(int playerCount) {
-
-        highscorelogic = new HighScoreLogic();
 
         PlayerCount = playerCount;
         player = new Player[playercount];
@@ -65,11 +64,23 @@ public class GameManager : MonoBehaviour {
 
         Player playerData = player[id].GetComponent<Player>();
 
+        player[id] = playerData;
+
         int spawnPointIndex = Random.Range(0, spawnPoints.Length - 1);
 
         GameObject playerVehicle = GameObject.Instantiate<GameObject>(carPrefab);
 
         playerVehicle.transform.position = spawnPoints[spawnPointIndex].transform.position;
+
+    }
+
+    private void AddHighScorePoints(int playerId, PointType damageType) {
+
+        Player toReward = player[playerId];
+
+        int points = HighScoreLogic.CalculatePoints(player[playerId], damageType);
+
+        toReward.addScore(points);
 
     }
  
