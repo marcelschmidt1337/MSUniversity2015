@@ -30,7 +30,7 @@ public class Flag : MonoBehaviour {
     {
         CurrentOwner = NewOwner;
         transform.parent = NewOwner.transform;
-        transform.localPosition = new Vector3(0, transform.localPosition.y, 0);
+        transform.localPosition = new Vector3(0, 4, 0);
         transform.localRotation = Quaternion.identity;
 
     }
