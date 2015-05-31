@@ -8,7 +8,8 @@ public class PauseScreen : MonoBehaviour, IUIScreen
 	public UIState StateId { get { return UIState.PauseScreen; } }
 	float OriginalTimeScale;
 
-	public void Activate () {
+    public void Activate(UIState OldState)
+    {
 		this.OriginalTimeScale = Time.timeScale;
 		this.gameObject.SetActive( true );
         var selectedGo = GetComponentInChildren<Button>().gameObject;

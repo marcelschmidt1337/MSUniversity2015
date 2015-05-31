@@ -24,7 +24,7 @@ public class HighscoreScreen : MonoBehaviour , IUIScreen
 	private WofClient WofClient;
 	private List<Round> HighscoreData = new List<Round>();
 
-	public void Activate () {
+	public void Activate (UIState OldState) {
 		this.gameObject.SetActive( true );
 		this.WofClient = new WofClient( GAME_GUID );
         var selectedGo = GetComponentInChildren<Button>().gameObject;

@@ -23,7 +23,7 @@ public class ResultScreen : MonoBehaviour, IUIScreen {
 	private WofClient WofClient;
 	private Player Winner;
 
-	public void Activate () {
+	public void Activate (UIState OldState) {
 		this.gameObject.SetActive( true );
 		var selectedGo = GetComponentInChildren<Button>().gameObject;
 		EventSystem.current.SetSelectedGameObject( selectedGo );
