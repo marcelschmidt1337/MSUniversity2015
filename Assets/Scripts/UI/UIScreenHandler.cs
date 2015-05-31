@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UIScreenHandler : MonoBehaviour 
 {
@@ -9,6 +10,8 @@ public class UIScreenHandler : MonoBehaviour
 	public GameObject[] Screens;
 	private IUIScreen[] UIScreens;
 	private IUIScreen ActiveScreen;
+
+    private List<RootObjects> LoadedRootObjects = new List<RootObjects>();
 
 	void Start () {
 		if (UIScreenHandler.Instance == null) {
@@ -29,10 +32,17 @@ public class UIScreenHandler : MonoBehaviour
 
 	public void ChangeState (UIState newState) {
 		this.ActiveScreen.Deactivate( () => {
+            ClearLoadedRootObjects();
 			this.ActiveScreen = GetScreenForState( newState );
 			this.ActiveScreen.Activate();
 		} );
 	}
+
+    private void ClearLoadedRootObjects()
+    {
+        this.LoadedRootObjects.ForEach((element) => { Destroy(element.gameObject); });
+        this.LoadedRootObjects.Clear();
+    }
 
 	private IUIScreen GetScreenForState (UIState uiState) {
 		for (int i = 0; i < this.UIScreens.Length; i++) {
@@ -43,4 +53,9 @@ public class UIScreenHandler : MonoBehaviour
 
 		throw new System.NotImplementedException( "UIScreen for state " + uiState.ToString() + "not found!" );
 	}
+
+    public void RegisterRootObject(RootObjects rootObject)
+    {
+        this.LoadedRootObjects.Add(rootObject);
+    }
 }

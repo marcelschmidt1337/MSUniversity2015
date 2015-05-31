@@ -87,13 +87,21 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &934061431
+--- !u!1001 &534643001
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 22428470, guid: 10c169a9d796e684e9910030cb052273, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22428470, guid: 10c169a9d796e684e9910030cb052273, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22416840, guid: 10c169a9d796e684e9910030cb052273, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -124,7 +132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22416840, guid: 10c169a9d796e684e9910030cb052273, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22416840, guid: 10c169a9d796e684e9910030cb052273, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -165,14 +173,6 @@ Prefab:
     - target: {fileID: 22416840, guid: 10c169a9d796e684e9910030cb052273, type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22428470, guid: 10c169a9d796e684e9910030cb052273, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22428470, guid: 10c169a9d796e684e9910030cb052273, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10c169a9d796e684e9910030cb052273, type: 2}

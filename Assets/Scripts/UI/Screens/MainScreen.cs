@@ -12,6 +12,7 @@ public class MainScreen : MonoBehaviour, IUIScreen
 
 	public void Activate () {
 		this.gameObject.SetActive( true );
+        Application.LoadLevelAdditive("UI_Background");
         var selectedGo = GetComponentInChildren<Button>().gameObject;
         EventSystem.current.SetSelectedGameObject(selectedGo);
 	}
