@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     Player playerprefab;
 
-    [SerializeField]
-    GameObject carPrefab;
-
 	[SerializeField]
 	float initialGameTime;
 
@@ -58,22 +55,33 @@ public class GameManager : MonoBehaviour {
     public void StartGame(int playerCount) {
 
         PlayerCount = playerCount;
-        player = new Player[playercount];
-
-        gameStarted = true;
-
-        for (int i = 0; i < playercount; i++) {
-            SpawnPlayer(i);
+        player = new Player[playercount];        int[] SpawnPositions = { 0, 1, 2, 3 };
+        for (int i = 0; i < 100; i++)
+        {
+            int Index1 = Random.Range(0, 3); 
+            int Index2 = Random.Range(0, 3);
+            int tmp = SpawnPositions[Index1];
+            SpawnPositions[Index1] = SpawnPositions[Index2];
+            SpawnPositions[Index2] = tmp;
         }
 
+
+        for (int i = 0; i < playercount; i++)
+        {
+            SpawnPlayer(i, SpawnPositions[i]);
+        }
+
+        for (int i = playercount; i < 4; i++)
+        {
+            spawnPoints[i].SetActive(false);
+        }
 		timer = initialGameTime;
     }
 
-    public void SpawnPlayer(int id) {
+    public void SpawnPlayer(int id, int SpawnPosition) {
         player[id] = GameObject.Instantiate<Player>(playerprefab);
 
         Player playerData = player[id].GetComponent<Player>();
-
         player[id] = playerData;
 
         playerData.IsAlive = true;
@@ -84,6 +92,8 @@ public class GameManager : MonoBehaviour {
 
         playerVehicle.transform.position = spawnPoints[spawnPointIndex].transform.position;
 
+        XInputControlled Controller = spawnPoints[SpawnPosition].GetComponent<XInputControlled>();
+        Controller.PlayerIndex = (XInputDotNetPure.PlayerIndex)id;
     }
 
     private void AddHighScorePoints(int playerId, PointType damageType) {

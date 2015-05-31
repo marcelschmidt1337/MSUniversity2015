@@ -128,7 +128,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void Move(float steering, float accel, float footbrake, float handbrake)
         {
-            Quaternion Foo = Quaternion.Euler(0, 90, 0);
+            Quaternion Foo = Quaternion.Euler(0, -90, 0);
             for (int i = 0; i < 4; i++)
             {
                 Quaternion quat;
