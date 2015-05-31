@@ -104,6 +104,9 @@ public class GameManager : MonoBehaviour {
 
         XInputControlled Controller = spawnPoints[SpawnPosition].GetComponent<XInputControlled>();
         Controller.PlayerIndex = (XInputDotNetPure.PlayerIndex)id;
+
+        Car PlayerCar = spawnPoints[SpawnPosition].GetComponent<Car>();
+        PlayerCar.Owner = playerData;
     }
 
     private void AddHighScorePoints(int playerId, PointType damageType) {
