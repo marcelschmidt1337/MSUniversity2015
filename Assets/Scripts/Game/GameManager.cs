@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 
     private Player[] player;
 
-    private Player winningPlayer 0 null;
+    private Player winningPlayer = null;
 
     // Static singleton instance
     private static GameManager instance;
