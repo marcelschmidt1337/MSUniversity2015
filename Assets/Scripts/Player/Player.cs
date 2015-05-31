@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
 
     private bool hasCrown = false;
 
+    private bool isAlive = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -46,10 +48,17 @@ public class Player : MonoBehaviour {
         set { hasCrown = value; }
     }
 
-    public void addLivePoints(int livepoints) {
-        LivePoints = LivePoints - livepoints;
+    public bool IsAlive {
+        get { return isAlive; }
+        set { isAlive = value; }
     }
 
+    public void addLivePoints(int livepoints) {
+        LivePoints = LivePoints - livepoints;
+        if (LivePoints <= 0) {
+            LivePoints = 0;
+        }
+    }
 
     public int Score {
         get {
