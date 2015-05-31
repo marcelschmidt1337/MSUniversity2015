@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 20c572c367813974dac0b4b216cf1886
+timeCreated: 1433064795
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Collada_visual_scene_group
+    100004: Collada_visual_scene_group.001
+    100006: DefaultName
+    100008: door_handle_ds
+    100010: door_handle_ds_1
+    100012: door_handle_ps_01
+    100014: door_handle_ps_01_1
+    100016: driver_side_door
+    100018: driver_side_door_1
+    100020: group
+    100022: group_1
+    100024: Lamp
+    100026: LandRover
+    100028: //RootNode
+    100030: LandRover_1
+    100032: matrixTransform
+    100034: matrixTransform_1
+    100036: matrixTransform_2
+    100038: matrixTransform_3
+    100040: matrixTransform_4
+    100042: matrixTransform_5
+    100044: matrixTransform_6
+    100046: passenger_side_door
+    100048: passenger_side_door_1
+    100050: sceneRoot
+    100052: sceneRoot.001
+    100054: tire1
+    100056: tire1_1
+    100058: tire3
+    100060: tire3_1
+    100062: tire3_1.001
+    100064: tire_2
+    100066: tire_2_1
+    400000: Camera
+    400002: Collada_visual_scene_group
+    400004: Collada_visual_scene_group.001
+    400006: DefaultName
+    400008: door_handle_ds
+    400010: door_handle_ds_1
+    400012: door_handle_ps_01
+    400014: door_handle_ps_01_1
+    400016: driver_side_door
+    400018: driver_side_door_1
+    400020: group
+    400022: group_1
+    400024: Lamp
+    400026: LandRover
+    400028: //RootNode
+    400030: LandRover_1
+    400032: matrixTransform
+    400034: matrixTransform_1
+    400036: matrixTransform_2
+    400038: matrixTransform_3
+    400040: matrixTransform_4
+    400042: matrixTransform_5
+    400044: matrixTransform_6
+    400046: passenger_side_door
+    400048: passenger_side_door_1
+    400050: sceneRoot
+    400052: sceneRoot.001
+    400054: tire1
+    400056: tire1_1
+    400058: tire3
+    400060: tire3_1
+    400062: tire3_1.001
+    400064: tire_2
+    400066: tire_2_1
+    2300000: door_handle_ds_1
+    2300002: door_handle_ps_01_1
+    2300004: driver_side_door_1
+    2300006: LandRover_1
+    2300008: passenger_side_door_1
+    2300010: tire1_1
+    2300012: tire3_1
+    2300014: tire3_1.001
+    2300016: tire_2_1
+    3300000: door_handle_ds_1
+    3300002: door_handle_ps_01_1
+    3300004: driver_side_door_1
+    3300006: LandRover_1
+    3300008: passenger_side_door_1
+    3300010: tire1_1
+    3300012: tire3_1
+    3300014: tire3_1.001
+    3300016: tire_2_1
+    4300000: tire1_1
+    4300002: tire3_1.001
+    4300004: tire3_1
+    4300006: door_handle_ds_1
+    4300008: driver_side_door_1
+    4300010: door_handle_ps_01_1
+    4300012: passenger_side_door_1
+    4300014: tire_2_1
+    4300016: LandRover_1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
