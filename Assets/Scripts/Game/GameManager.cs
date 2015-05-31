@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
     public GameObject[] spawnPoints;
 
     [SerializeField]
+    Flag flag;
+
+    [SerializeField]
     int playercount;
 
     [SerializeField]
@@ -49,6 +52,17 @@ public class GameManager : MonoBehaviour {
     public void CarCrashesCar(int origin, int victim) {
         DamagePlayer(victim, -crashDamagePoints);
         AddHighScorePoints(origin, PointType.Crash);
+
+        if (flag.CurrentOwner.Owner.ID == origin)
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                if ((spawnPoints[i].activeInHierarchy) && (spawnPoints[i].GetComponent<Car>().Owner.ID == victim))
+                {
+                    flag.SetOwner(spawnPoints[i].GetComponent<Car>());
+                }
+            }
+        }
 
     }
 
