@@ -4,7 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
     
     [SerializeField]
-    GameObject[] spawnPoints;
+    public GameObject[] spawnPoints;
 
     [SerializeField]
     int playercount;
@@ -26,12 +26,19 @@ public class GameManager : MonoBehaviour {
     private Player winningPlayer = null;
 
     // Static singleton instance
-    private static GameManager instance;
+    private static GameManager instance = null;
      
     // Static singleton property
     public static GameManager Instance
     {
-        get { return instance ?? (instance = new GameObject("GameManager").AddComponent<GameManager>()); }
+        get { 
+            return instance; 
+        }
+    }
+
+    public void Awake()
+    {
+        GameManager.instance = this;
     }
 
     public int PlayerCount {
