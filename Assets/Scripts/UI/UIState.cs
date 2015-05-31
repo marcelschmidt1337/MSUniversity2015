@@ -3,5 +3,6 @@
 	MainScreen = 0,
 	HighscoreScreen,
 	IngameScreen,
-	PauseScreen
+	PauseScreen,
+	ResultScreen
 }
