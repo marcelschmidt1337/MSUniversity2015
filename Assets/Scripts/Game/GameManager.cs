@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
 
     private Player[] player;
 
+    private Player winningPlayer = null;
+
     // Static singleton instance
     private static GameManager instance;
      
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour {
     public void CarCrashesCar(int origin, int victim) {
         DamagePlayer(victim, -crashDamagePoints);
         AddHighScorePoints(origin, PointType.Crash);
+
     }
 
     public void WeaponCrashesCar(int origin, int victim, Weapon weapon) {
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour {
     public void RagdollFlies(int origin, int victim) {
         DamagePlayer(victim, -crashDamagePoints);
         AddHighScorePoints(origin, PointType.Ragdoll);
+
     }
 
     public void StartGame(int playerCount) {
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour {
 
         Player playerData = player[id].GetComponent<Player>();
         player[id] = playerData;
+        playerData.ID = id;
 
         playerData.IsAlive = true;
 
@@ -107,16 +112,31 @@ public class GameManager : MonoBehaviour {
 
         int livingPlayers = 0;
 
+        int livingPlayerId = 0;
+
         if (!player[playerId].IsAlive) {
             for (int i = 0; i < PlayerCount; i++) {
-                livingPlayers += player[i].IsAlive ? 1 : 0; 
+                livingPlayers += player[i].IsAlive ? 1 : 0;
+
+                livingPlayerId = player[i].IsAlive ? i : livingPlayerId;
             }
         }
 
         if (livingPlayers == 1) {
+            WinningPlayer = player[livingPlayerId];
             gameStarted = false;
+            UIScreenHandler.Instance.ChangeState(UIState.HighscoreScreen);
         } else if (livingPlayers > 1) {
 
+        }
+    }
+
+    public Player WinningPlayer {
+        get {
+            return winningPlayer;
+        }
+        private set {
+            winningPlayer = value;
         }
     }
 
@@ -126,6 +146,7 @@ public class GameManager : MonoBehaviour {
 
 			if (timer <= 0) {
 				gameStarted = false;
+                UIScreenHandler.Instance.ChangeState(UIState.HighscoreScreen);
 			}
 		}
 	}
