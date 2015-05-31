@@ -9,7 +9,6 @@ public class TestInput : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("hi");
         // get the car controller
         m_Car = GetComponent<CarController>();
     }
