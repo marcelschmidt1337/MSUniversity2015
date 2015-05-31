@@ -38,17 +38,17 @@ public class GameManager : MonoBehaviour {
     }
 
     public void CarCrashesCar(int origin, int victim) {
-        player[victim].addLivePoints(-crashDamagePoints);
+        DamagePlayer(victim, -crashDamagePoints);
         AddHighScorePoints(origin, PointType.Crash);
     }
 
     public void WeaponCrashesCar(int origin, int victim, Weapon weapon) {
-        player[victim].addLivePoints(-crashDamagePoints);
+        DamagePlayer(victim, -crashDamagePoints);
         AddHighScorePoints(origin, PointType.Weapon);
     }
 
     public void RagdollFlies(int origin, int victim) {
-        player[victim].addLivePoints(-crashDamagePoints);
+        DamagePlayer(victim, -crashDamagePoints);
         AddHighScorePoints(origin, PointType.Ragdoll);
     }
 
@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour {
             SpawnPositions[Index1] = SpawnPositions[Index2];
             SpawnPositions[Index2] = tmp;
         }
+
 
         for (int i = 0; i < playercount; i++)
         {
@@ -83,6 +84,14 @@ public class GameManager : MonoBehaviour {
         Player playerData = player[id].GetComponent<Player>();
         player[id] = playerData;
 
+        playerData.IsAlive = true;
+
+        int spawnPointIndex = Random.Range(0, spawnPoints.Length - 1);
+
+        GameObject playerVehicle = GameObject.Instantiate<GameObject>(carPrefab);
+
+        playerVehicle.transform.position = spawnPoints[spawnPointIndex].transform.position;
+
         XInputControlled Controller = spawnPoints[SpawnPosition].GetComponent<XInputControlled>();
         Controller.PlayerIndex = (XInputDotNetPure.PlayerIndex)id;
     }
@@ -97,6 +106,24 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    private void DamagePlayer(int playerId, int damagePoints) {
+        player[playerId].addLivePoints(-damagePoints);
+
+        int livingPlayers = 0;
+
+        if (!player[playerId].IsAlive) {
+            for (int i = 0; i < PlayerCount; i++) {
+                livingPlayers += player[i].IsAlive ? 1 : 0; 
+            }
+        }
+
+        if (livingPlayers == 1) {
+            gameStarted = false;
+        } else if (livingPlayers > 1) {
+
+        }
+    }
+
 	void Update () {
 		if (gameStarted) {
 			timer -= Time.deltaTime;
@@ -106,6 +133,8 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
+
+
  
 
 }
