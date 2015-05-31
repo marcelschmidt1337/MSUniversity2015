@@ -2,8 +2,10 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using WallOfFame.Client.Net35;
 
 public class ResultScreen : MonoBehaviour, IUIScreen {
+	const string url = "http://walloffame.azurewebsites.net/Api/Round/";
 
 	public UIState StateId { get { return UIState.ResultScreen; } }
 
