@@ -88,8 +88,6 @@ public class GameManager : MonoBehaviour {
 
         int spawnPointIndex = Random.Range(0, spawnPoints.Length - 1);
 
-        playerVehicle.transform.position = spawnPoints[spawnPointIndex].transform.position;
-
         XInputControlled Controller = spawnPoints[SpawnPosition].GetComponent<XInputControlled>();
         Controller.PlayerIndex = (XInputDotNetPure.PlayerIndex)id;
     }
