@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Weapon : MonoBehaviour {
+public class Car : MonoBehaviour {
 
     Player owner;
-
-	// Use this for initialization
+    
+    // Use this for initialization
 	void Start () {
 	
 	}
@@ -16,7 +16,8 @@ public class Weapon : MonoBehaviour {
 	}
 
     public Player Owner {
-        get {return owner; }
+
+        get { return owner; }
         set { owner = value; }
     }
 }

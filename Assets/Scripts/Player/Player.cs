@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
 
     private int score = 0;
 
+    private bool hasCrown = false;
+
 
 	// Use this for initialization
 	void Start () {
