@@ -11,6 +11,7 @@ public class PauseScreen : MonoBehaviour, IUIScreen
     public void Activate(UIState OldState)
     {
 		this.OriginalTimeScale = Time.timeScale;
+		Time.timeScale = 0;
 		this.gameObject.SetActive( true );
         var selectedGo = GetComponentInChildren<Button>().gameObject;
         EventSystem.current.SetSelectedGameObject(selectedGo);
