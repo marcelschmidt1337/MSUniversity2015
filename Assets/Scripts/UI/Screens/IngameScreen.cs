@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class IngameScreen : MonoBehaviour, IUIScreen 
 {
 
 	public UIState StateId { get { return UIState.IngameScreen; } }
+
+	[SerializeField]
+	private Text[] PlayerScore;
 
     public void Activate(UIState OldState)
     {
@@ -31,5 +35,9 @@ public class IngameScreen : MonoBehaviour, IUIScreen
         {
             UIScreenHandler.Instance.ChangeState(UIState.PauseScreen);
         }
+
+		for (int i = 0; i < this.PlayerScore.Length; i++) {
+			this.PlayerScore[i].text = GameManager.Instance.player[i].Score.ToString();
+		}
     }
 }

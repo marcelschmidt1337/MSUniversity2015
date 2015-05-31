@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	private float timer;
 	private bool gameStarted = false;
 
-    private Player[] player;
+    public Player[] player;
 
     private Player winningPlayer = null;
 
