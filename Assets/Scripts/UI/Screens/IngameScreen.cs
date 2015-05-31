@@ -8,6 +8,7 @@ public class IngameScreen : MonoBehaviour, IUIScreen
 
 	public void Activate () {
 		this.gameObject.SetActive( true );
+		Application.LoadLevelAdditive( "Arena" );
 	}
 
 	public void Deactivate (System.Action onDone) {

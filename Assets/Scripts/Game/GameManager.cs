@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     GameObject carPrefab;
 
+	[SerializeField]
+	float initialGameTime;
+
+	private float timer;
+	private bool gameStarted = false;
+
     private Player[] player;
 
     // Static singleton instance
@@ -56,7 +62,9 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < playercount; i++) {
             SpawnPlayer(i);
-        } 
+        }
+
+		timer = initialGameTime;
     }
 
     public void SpawnPlayer(int id) {
@@ -83,6 +91,10 @@ public class GameManager : MonoBehaviour {
         toReward.addScore(points);
 
     }
+
+	void Update () {
+
+	}
  
 
 }
