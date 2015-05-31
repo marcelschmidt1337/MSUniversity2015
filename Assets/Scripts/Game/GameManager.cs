@@ -93,7 +93,13 @@ public class GameManager : MonoBehaviour {
     }
 
 	void Update () {
+		if (gameStarted) {
+			timer -= Time.deltaTime;
 
+			if (timer <= 0) {
+				gameStarted = false;
+			}
+		}
 	}
  
 
