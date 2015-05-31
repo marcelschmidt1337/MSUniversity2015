@@ -7,7 +7,8 @@ public class ResultScreen : MonoBehaviour, IUIScreen {
 
 	public UIState StateId { get { return UIState.ResultScreen; } }
 
-	public void Activate () {
+    public void Activate(UIState OldState)
+    {
 		this.gameObject.SetActive( true );
 		var selectedGo = GetComponentInChildren<Button>().gameObject;
 		EventSystem.current.SetSelectedGameObject( selectedGo );

@@ -7,7 +7,8 @@ public class HighscoreScreen : MonoBehaviour , IUIScreen
 {
 	public UIState StateId { get { return UIState.HighscoreScreen; } }
 
-	public void Activate () {
+    public void Activate(UIState OldState)
+    {
 		this.gameObject.SetActive( true );
         var selectedGo = GetComponentInChildren<Button>().gameObject;
         EventSystem.current.SetSelectedGameObject(selectedGo);

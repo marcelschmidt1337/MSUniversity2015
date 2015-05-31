@@ -19,7 +19,7 @@ public class UIScreenHandler : MonoBehaviour
 		}
 		SetupInterfaces();
 		this.ActiveScreen = GetScreenForState( UIState.MainScreen );
-        this.ActiveScreen.Activate();
+        this.ActiveScreen.Activate(UIState.ResultScreen);
 	}
 
 	private void SetupInterfaces () {
@@ -31,12 +31,13 @@ public class UIScreenHandler : MonoBehaviour
 	}
 
 	public void ChangeState (UIState newState) {
+        UIState OldState = this.ActiveScreen.StateId;
 		this.ActiveScreen.Deactivate( () => {
-			if (newState != UIState.PauseScreen && this.ActiveScreen.StateId != UIState.PauseScreen) {
+			if ((newState != UIState.PauseScreen) && ((this.ActiveScreen.StateId != UIState.PauseScreen) || (newState != UIState.IngameScreen))) {
 				 ClearLoadedRootObjects();
 			}
 			this.ActiveScreen = GetScreenForState( newState );
-			this.ActiveScreen.Activate();
+            this.ActiveScreen.Activate(OldState);
 		} );
 	}
 

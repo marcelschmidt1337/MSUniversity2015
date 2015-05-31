@@ -6,9 +6,13 @@ public class IngameScreen : MonoBehaviour, IUIScreen
 
 	public UIState StateId { get { return UIState.IngameScreen; } }
 
-	public void Activate () {
+    public void Activate(UIState OldState)
+    {
 		this.gameObject.SetActive( true );
-		Application.LoadLevelAdditive( "Arena" );
+        if (OldState != UIState.PauseScreen)
+        {
+            Application.LoadLevelAdditive("Arena");
+        }
 	}
 
 	public void Deactivate (System.Action onDone) {
