@@ -66,8 +66,9 @@ public class GameManager : MonoBehaviour {
     public void StartGame(int playerCount) {
 
         PlayerCount = playerCount;
-        player = new Player[playercount];        int[] SpawnPositions = { 0, 1, 2, 3 };
-        for (int i = 0; i < 100; i++)
+        player = new Player[playercount];        
+        int[] SpawnPositions = { 0, 1, 2, 3 };
+        for (int i = 0; i < 4; i++)
         {
             int Index1 = Random.Range(0, 3); 
             int Index2 = Random.Range(0, 3);
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour {
             SpawnPositions[Index2] = tmp;
         }
 
+        Debug.Log(SpawnPositions);
 
         for (int i = 0; i < playercount; i++)
         {
@@ -84,7 +86,7 @@ public class GameManager : MonoBehaviour {
 
         for (int i = playercount; i < 4; i++)
         {
-            spawnPoints[i].SetActive(false);
+            spawnPoints[SpawnPositions[i]].SetActive(false);
         }
 		timer = initialGameTime;
     }
