@@ -13,11 +13,14 @@ public class CollidingBehaviour : MonoBehaviour {
 	
 	}
 
-    public void OnCollisionEnter(Collision collision) {
-        Weapon weapon = collision.collider.GetComponent<Weapon>();
+    public void OnTriggerEnter(Collider other) {
+        Weapon weapon = other.gameObject.GetComponent<Weapon>();
 
-        Car crashingCar = collision.collider.GetComponent<Car>();
-        Car car = this.GetComponent<Car>();
+        Car crashingCar = other.gameObject.GetComponent<Car>();
+        Car car = this.gameObject.GetComponent<Car>();
+
+
+        Debug.Log("Collision!!!" + other.gameObject.gameObject.name);
 
         if (weapon != null) {
             Player weaponOwner = weapon.Owner;
@@ -29,9 +32,14 @@ public class CollidingBehaviour : MonoBehaviour {
                 Debug.Log("Car collided with Weapon! Origin: " + weaponOwner.ID + " Victim: " + car.Owner.ID );
             }
         } else if (crashingCar != null) {
-            GameManager.Instance.CarCrashesCar(crashingCar.Owner.ID, car.Owner.ID);
 
-            Debug.Log("Car collided with other car " + crashingCar.Owner.ID + " Victim: " + car.Owner.ID);
+            if (car != null) { 
+                //GameManager.Instance.CarCrashesCar(crashingCar.Owner.ID, car.Owner.ID);
+
+                Debug.Log("Car collided with other car " + crashingCar.Owner.ID + " Victim: " + car.Owner.ID);
+            } else {
+                Debug.Log("Collision with car: Car is null!");
+            }
         }
     }
 }
