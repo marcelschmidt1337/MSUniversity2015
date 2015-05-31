@@ -32,7 +32,7 @@ public class UIScreenHandler : MonoBehaviour
 
 	public void ChangeState (UIState newState) {
 		this.ActiveScreen.Deactivate( () => {
-			if (newState != UIState.PauseScreen) {
+			if (newState != UIState.PauseScreen && this.ActiveScreen.StateId != UIState.PauseScreen) {
 				 ClearLoadedRootObjects();
 			}
 			this.ActiveScreen = GetScreenForState( newState );
